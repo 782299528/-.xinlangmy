@@ -7,7 +7,8 @@
 //
 
 #import "discoverTableViewController.h"
-
+#import "accountTool.h"
+#import "accountModel.h"
 @interface discoverTableViewController ()
 
 @end
@@ -16,8 +17,12 @@
 
 
 - (void)loadView{
-    self.hasLogin = YES;
+//    self.hasLogin = YES;
+
+    
+    
     self.mytag =2;
+    
     [super loadView];
 }
 
@@ -44,6 +49,7 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
+
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

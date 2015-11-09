@@ -8,6 +8,10 @@
 
 #import "vistorTableViewController.h"
 #import "vistorVIew.h"
+#import "LoginVc.h"
+#import "accountModel.h"
+#import "accountTool.h"
+
 @interface vistorTableViewController ()<vistorVIewDelegate>
 
 @end
@@ -16,11 +20,17 @@
 
 //重写这个方法 根据用户是否登录来显示内容
 - (void)loadView{
-    
-    if (self.hasLogin == YES) {
-         [super loadView];
-        
+    accountTool *tool = [[accountTool alloc]init];
+    accountModel *model =  [tool getAccount];
+    if (model.access_token) {
+        self.hasLogin = YES;
     }
+    NSLog(@"%@",NSHomeDirectory());
+ 
+    if (self.hasLogin == YES||self.mytag == 2) {
+         [super loadView];
+    }
+    
     else{
         vistorVIew *view = [[vistorVIew alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height)];
         self.view = view;
@@ -33,25 +43,44 @@
 
 - (void)setMytag:(int)mytag{
     _mytag = mytag;
+    accountTool *tool = [[accountTool alloc]init];
+    accountModel *model =  [tool getAccount];
 
-//    NSLog(@"%d",mytag);
     switch (mytag) {
         case 0:
-            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRegist)];
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(didClickLogin)];
-            [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
-            [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
+            
+            if (!model.access_token) {
+//            登录前
+                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRegist)];
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(didClickLogin)];
+                [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
+                [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
+            }else{
+//                登陆后
+
+                
+            }
+            
+ 
           
             break;
         case 1:
             
             break;
         case 2:
-            self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRegist)];
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(didClickLogin)];
-            [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
-            [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
-            break;
+            
+            if (!model.access_token) {
+                //            登录前
+                self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"注册" style:UIBarButtonItemStylePlain target:self action:@selector(didClickRegist)];
+                self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"登录" style:UIBarButtonItemStylePlain target:self action:@selector(didClickLogin)];
+                [self.navigationItem.leftBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
+                [self.navigationItem.rightBarButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]} forState:UIControlStateNormal];
+            }else{
+                //            登录后
+            
+            }
+            
+           break;
         case 3:
                 self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(mySet)];
             
@@ -65,12 +94,22 @@
 //navbar点击注册
 - (void)didClickRegist{
     NSLog(@"点击注册");
-    
+
     
 }
 - (void)didClickLogin{
     NSLog(@"点击登录");
-
+    
+    LoginVc *login = [[LoginVc alloc]init];
+    
+    UINavigationController *logNav = [[UINavigationController alloc]initWithRootViewController:login];
+//    login.modalPresentationStyle = UIModalPresentationFormSheet;
+//    login.wantsFullScreenLayout = NO;
+//    [self presentViewController:login animated:YES completion:nil];
+    [self presentViewController:logNav animated:YES completion:nil];
+    
+    
+    
 }
 
 - (void)mySet{

@@ -14,11 +14,13 @@
 
 @implementation firstTableViewController
 
+
+
 - (void)loadView{
+    NSLog(@"jiazai");
     self.mytag = 0;
     [super loadView];
-   
-    
+
 }
 
 - (void)viewDidLoad {
@@ -28,6 +30,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -43,6 +46,11 @@
 #warning Incomplete implementation, return the number of rows
     return 0;
 }
+
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    self.hasLogin = YES;
+//    [self loadView];
+//}
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

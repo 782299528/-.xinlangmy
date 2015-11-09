@@ -20,8 +20,6 @@
 
 @implementation vistorVIew
 
-
-
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
@@ -62,7 +60,6 @@
 }
 
 - (void)setMytag:(int)mytag{
-//    NSLog(@"%d",mytag);
     _mytag = mytag;
     //设置tab的自动布局
     NSLayoutConstraint *cons1 = [NSLayoutConstraint constraintWithItem:self.lab attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.iconVIew attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
@@ -101,8 +98,6 @@
         
         self.scroll.layer.anchorPoint = CGPointMake(0.5, 0.5);
         
-//        CADisplayLink *link = [CADisplayLink displayLinkWithTarget:self selector:@selector(rotate)];
-//        [[NSRunLoop mainRunLoop]addTimer:link forMode:@"kCFRunLoopDefaultMode"];
         [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(rotate) userInfo:nil repeats:YES];
         
         
