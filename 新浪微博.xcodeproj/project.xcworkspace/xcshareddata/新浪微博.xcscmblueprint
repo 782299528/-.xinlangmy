@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "ECFE9C712CD5169AD13F5CB117A083D876F3C2CA",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "ECFE9C712CD5169AD13F5CB117A083D876F3C2CA" : 0,
+    "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C252DCA3-0BD4-407A-8AB6-D6D3DD250EBE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "ECFE9C712CD5169AD13F5CB117A083D876F3C2CA" : "%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A\/",
+    "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB" : "%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A\/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A\/Masonry\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "新浪微博",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "新浪微博.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SnapKit\/Masonry.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6FC4832245A6A8E50F2A782F20A8B58A46BD1FEB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/782299528\/-.xinlangmy.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "ECFE9C712CD5169AD13F5CB117A083D876F3C2CA"
+    }
+  ]
+}
