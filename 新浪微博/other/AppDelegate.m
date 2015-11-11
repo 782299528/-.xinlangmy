@@ -8,7 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MytabBarCon.h"
-
+#import "newFeatureViewController.h"
+#import "accountModel.h"
+#import "accountTool.h"
 @interface AppDelegate ()
 
 @end
@@ -21,10 +23,47 @@
     CGFloat w = [UIScreen mainScreen].bounds.size.width;
     CGFloat h = [UIScreen mainScreen].bounds.size.height;
     self.window = [[UIWindow alloc]initWithFrame:CGRectMake(0, 0, w, h)];
-    MytabBarCon *main = [[MytabBarCon alloc]init];
     
-    self.window.rootViewController = main;
+//    加逻辑判断  跳哪个界面
+    NSString *localVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"version"];
+    NSString *rightNowVersion = [NSBundle mainBundle].infoDictionary[@"CFBundleShortVersionString"];
+    
+    if (!localVersion||[localVersion compare:rightNowVersion] == NSOrderedAscending) {
+//        如果是本地版本号没值或者本地版本号偏低,就显示新特性
+        [[NSUserDefaults standardUserDefaults] setObject:rightNowVersion forKey:@"version"];
+        
+        newFeatureViewController *new = [[newFeatureViewController alloc]init];
+        self.window.rootViewController = new;
+    }else{
+        MytabBarCon *main = [[MytabBarCon alloc]init];
+        self.window.rootViewController = main;
+    }
+    
+    
     [self.window makeKeyAndVisible];
+    
+//    取出账号 判断是否过期
+    accountTool *tool = [[accountTool alloc]init];
+    accountModel *account = [tool getAccount];
+    NSNumber *timeInterval = account.expires_in;
+    NSDate *creatDate = account.creatDate;
+    
+    NSDate *nowDate = [NSDate date];
+    NSDate *outOfDate =[creatDate addTimeInterval:timeInterval.doubleValue];
+    NSLog(@"%@%@",nowDate,outOfDate);
+    
+//    过期时间比当前时间小,说明过期
+    if ([outOfDate compare:nowDate] == NSOrderedAscending) {
+//        过期的话就删除账户
+        NSString *docPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        NSString *filePath = [docPath stringByAppendingPathComponent:@"account.archive"];
+        NSFileManager *manager = [NSFileManager defaultManager];
+        [manager removeItemAtPath:filePath error:nil];
+    }
+    
+    
+
+    
     
     return YES;
 }

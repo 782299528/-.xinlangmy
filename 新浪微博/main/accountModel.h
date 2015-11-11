@@ -18,7 +18,7 @@
 @property (nonatomic,strong) NSNumber * expires_in;
 @property (nonatomic,copy) NSString * remind_in;
 @property (nonatomic,copy) NSString *uid;
-
+@property (nonatomic,strong) NSDate *creatDate;
 
 +(instancetype)modelWithDict:(NSDictionary *)dict;
 

@@ -9,6 +9,7 @@
 #import "discoverTableViewController.h"
 #import "accountTool.h"
 #import "accountModel.h"
+#import "searchView.h"
 @interface discoverTableViewController ()
 
 @end
@@ -18,9 +19,6 @@
 
 - (void)loadView{
 //    self.hasLogin = YES;
-
-    
-    
     self.mytag =2;
     
     [super loadView];
@@ -30,6 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title=  @"发现";
+    accountTool *tool = [[accountTool alloc]init];
+    accountModel *model = [tool getAccount];
+    if (model.access_token) {
+            self.navigationItem.titleView = [[searchView alloc]initWithFrame:CGRectMake(10, 5, self.view.bounds.size.width-20, self.navigationController.navigationBar.bounds.size.height-10)];
+    }
+
     
 }
 

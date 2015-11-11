@@ -28,6 +28,7 @@
     [aCoder encodeObject:self.expires_in forKey:@"expires_in"];
     [aCoder encodeObject:self.remind_in forKey:@"remind_in"];
     [aCoder encodeObject:self.uid forKey:@"uid"];
+    [aCoder encodeObject:self.creatDate forKey:@"creatDate"];
 
 }
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder{
@@ -37,8 +38,15 @@
         self.expires_in = [aDecoder decodeObjectForKey:@"expires_in"];
         self.remind_in = [aDecoder decodeObjectForKey:@"remind_in"];
         self.uid = [aDecoder decodeObjectForKey:@"uid"];
+        self.creatDate = [aDecoder decodeObjectForKey:@"creatDate"];
     }
     return self;
+}
+
+//accesstocken是和creat关联的 所以重写set方法
+- (void)setAccess_token:(NSString *)access_token{
+    _access_token = access_token;
+    _creatDate = [NSDate date];
 }
 
 @end
