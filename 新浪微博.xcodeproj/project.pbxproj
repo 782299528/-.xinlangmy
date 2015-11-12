@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0400BF181BF435BD000DB520 /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400BF171BF435BD000DB520 /* WelcomeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		0400BF1C1BF43E4D000DB520 /* UserTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0400BF1B1BF43E4D000DB520 /* UserTool.m */; settings = {ASSET_TAGS = (); }; };
 		042353B41BEF7E1E00AEFE91 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 042353B11BEF7E1E00AEFE91 /* AppDelegate.m */; settings = {ASSET_TAGS = (); }; };
 		042353BD1BEF7EC700AEFE91 /* MytabBarCon.m in Sources */ = {isa = PBXBuildFile; fileRef = 042353BC1BEF7EC700AEFE91 /* MytabBarCon.m */; settings = {ASSET_TAGS = (); }; };
 		042353C41BEF7FF300AEFE91 /* meTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042353C31BEF7FF300AEFE91 /* meTableViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -34,6 +36,9 @@
 		048C5FE71BECB3A600E0273B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048C5FE61BECB3A600E0273B /* Assets.xcassets */; };
 		048C5FF51BECB3A600E0273B /* ____Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C5FF41BECB3A600E0273B /* ____Tests.m */; };
 		048C60001BECB3A600E0273B /* ____UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 048C5FFF1BECB3A600E0273B /* ____UITests.m */; };
+		04A01FC81BF305480076CCDB /* UnreadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A01FC71BF305480076CCDB /* UnreadModel.m */; settings = {ASSET_TAGS = (); }; };
+		04A01FCB1BF3081A0076CCDB /* firstStatusCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A01FCA1BF3081A0076CCDB /* firstStatusCell.m */; settings = {ASSET_TAGS = (); }; };
+		04A39A2D1BF458BB009E9FBC /* libSDWebImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A39A2C1BF458BB009E9FBC /* libSDWebImage.a */; };
 		04C8F6081BF1DABE00C0D27A /* MJDictionaryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F5F21BF1DABE00C0D27A /* MJDictionaryCache.m */; settings = {ASSET_TAGS = (); }; };
 		04C8F6091BF1DABE00C0D27A /* MJExtensionConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F5F51BF1DABE00C0D27A /* MJExtensionConst.m */; settings = {ASSET_TAGS = (); }; };
 		04C8F60A1BF1DABE00C0D27A /* MJFoundation.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C8F5F71BF1DABE00C0D27A /* MJFoundation.m */; settings = {ASSET_TAGS = (); }; };
@@ -87,6 +92,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0400BF161BF435BD000DB520 /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		0400BF171BF435BD000DB520 /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		0400BF1A1BF43E4D000DB520 /* UserTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTool.h; sourceTree = "<group>"; };
+		0400BF1B1BF43E4D000DB520 /* UserTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTool.m; sourceTree = "<group>"; };
 		042353B01BEF7E1E00AEFE91 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		042353B11BEF7E1E00AEFE91 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		042353BB1BEF7EC700AEFE91 /* MytabBarCon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MytabBarCon.h; sourceTree = "<group>"; };
@@ -145,6 +154,11 @@
 		048C5FFB1BECB3A600E0273B /* 新浪微博UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "新浪微博UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		048C5FFF1BECB3A600E0273B /* ____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "____UITests.m"; sourceTree = "<group>"; };
 		048C60011BECB3A600E0273B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04A01FC61BF305480076CCDB /* UnreadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnreadModel.h; sourceTree = "<group>"; };
+		04A01FC71BF305480076CCDB /* UnreadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnreadModel.m; sourceTree = "<group>"; };
+		04A01FC91BF3081A0076CCDB /* firstStatusCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firstStatusCell.h; sourceTree = "<group>"; };
+		04A01FCA1BF3081A0076CCDB /* firstStatusCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = firstStatusCell.m; sourceTree = "<group>"; };
+		04A39A2C1BF458BB009E9FBC /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<group>"; };
 		04C8F5F11BF1DABE00C0D27A /* MJDictionaryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDictionaryCache.h; sourceTree = "<group>"; };
 		04C8F5F21BF1DABE00C0D27A /* MJDictionaryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJDictionaryCache.m; sourceTree = "<group>"; };
 		04C8F5F31BF1DABE00C0D27A /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -224,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A39A2D1BF458BB009E9FBC /* libSDWebImage.a in Frameworks */,
 				0EBCAAD4A4FE8AEAFB85B9EF /* libPods.a in Frameworks */,
 				7EB951A6A5FABBD15D1AF26A /* libPods-新浪微博.a in Frameworks */,
 			);
@@ -248,6 +263,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0400BF191BF43E24000DB520 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				04C8F6131BF1DC0100C0D27A /* UserModel.h */,
+				04C8F6141BF1DC0100C0D27A /* UserModel.m */,
+				0400BF1A1BF43E4D000DB520 /* UserTool.h */,
+				0400BF1B1BF43E4D000DB520 /* UserTool.m */,
+			);
+			name = user;
+			sourceTree = "<group>";
+		};
 		042353AF1BEF7E1E00AEFE91 /* other */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,10 +288,11 @@
 		042353B71BEF7E6300AEFE91 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				04C8F6131BF1DC0100C0D27A /* UserModel.h */,
-				04C8F6141BF1DC0100C0D27A /* UserModel.m */,
+				0400BF191BF43E24000DB520 /* user */,
 				047B3E4D1BF1E2EB0021E64D /* statusModel.h */,
 				047B3E4E1BF1E2EB0021E64D /* statusModel.m */,
+				04A01FC61BF305480076CCDB /* UnreadModel.h */,
+				04A01FC71BF305480076CCDB /* UnreadModel.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -273,6 +300,8 @@
 		042353B81BEF7E6E00AEFE91 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				04A01FC91BF3081A0076CCDB /* firstStatusCell.h */,
+				04A01FCA1BF3081A0076CCDB /* firstStatusCell.m */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -304,6 +333,8 @@
 				0478A2681BEF425C00884176 /* vistorVIew.m */,
 				04DB80B41BF0571800DAEBED /* LoginVc.h */,
 				04DB80B51BF0571800DAEBED /* LoginVc.m */,
+				0400BF161BF435BD000DB520 /* WelcomeViewController.h */,
+				0400BF171BF435BD000DB520 /* WelcomeViewController.m */,
 				04DB80D61BF096B200DAEBED /* account */,
 			);
 			path = main;
@@ -559,6 +590,7 @@
 		5F79D143E1A72C026813447D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04A39A2C1BF458BB009E9FBC /* libSDWebImage.a */,
 				04DB80B71BF08C6300DAEBED /* libSVProgressHUD.a */,
 				E680B4BE4B2B33F6BBA791DE /* libPods.a */,
 				5D595A12994D297DEFF78853 /* libPods-新浪微博.a */,
@@ -847,8 +879,10 @@
 				042353B41BEF7E1E00AEFE91 /* AppDelegate.m in Sources */,
 				048BE3C71BEF8E6F00B6C3B2 /* MASViewConstraint.m in Sources */,
 				047B3E4F1BF1E2EB0021E64D /* statusModel.m in Sources */,
+				0400BF1C1BF43E4D000DB520 /* UserTool.m in Sources */,
 				04C8F6091BF1DABE00C0D27A /* MJExtensionConst.m in Sources */,
 				04C8F6101BF1DABE00C0D27A /* NSObject+MJKeyValue.m in Sources */,
+				04A01FCB1BF3081A0076CCDB /* firstStatusCell.m in Sources */,
 				047B3E4C1BF1E1FA0021E64D /* Foundation+Log.m in Sources */,
 				042353BD1BEF7EC700AEFE91 /* MytabBarCon.m in Sources */,
 				04DB80D51BF08ECB00DAEBED /* SVRadialGradientLayer.m in Sources */,
@@ -860,6 +894,7 @@
 				048BE3C51BEF8E6F00B6C3B2 /* MASLayoutConstraint.m in Sources */,
 				048BE3CB1BEF8E6F00B6C3B2 /* ViewController+MASAdditions.m in Sources */,
 				048BE3C41BEF8E6F00B6C3B2 /* MASConstraintMaker.m in Sources */,
+				0400BF181BF435BD000DB520 /* WelcomeViewController.m in Sources */,
 				042353CA1BEF800D00AEFE91 /* messageTableViewController.m in Sources */,
 				042353CD1BEF801700AEFE91 /* firstTableViewController.m in Sources */,
 				042353C71BEF800100AEFE91 /* discoverTableViewController.m in Sources */,
@@ -876,6 +911,7 @@
 				04C8F6151BF1DC0100C0D27A /* UserModel.m in Sources */,
 				04DB80DC1BF0971000DAEBED /* accountTool.m in Sources */,
 				04C8F60A1BF1DABE00C0D27A /* MJFoundation.m in Sources */,
+				04A01FC81BF305480076CCDB /* UnreadModel.m in Sources */,
 				048BE3C61BEF8E6F00B6C3B2 /* MASViewAttribute.m in Sources */,
 				04DB80F31BF0AE3100DAEBED /* UIScrollView+MJExtension.m in Sources */,
 				04C8F6111BF1DABE00C0D27A /* NSObject+MJProperty.m in Sources */,

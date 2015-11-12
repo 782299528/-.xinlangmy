@@ -10,5 +10,5 @@
 #import "vistorTableViewController.h"
 
 @interface firstTableViewController : vistorTableViewController
-
+@property (nonatomic,assign) int status;
 @end

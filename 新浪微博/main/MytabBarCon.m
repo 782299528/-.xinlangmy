@@ -43,6 +43,8 @@
     UIImage *old1 = [UIImage imageNamed:@"tabbar_home"];
     UIImage *new1 = [old1 imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
+//    nav1.tabBarItem = [[UITabBarItem alloc]init];在这里使用自定义的tabbaritem
+    
     [nav1.tabBarItem setImage:new1 ];
     [nav1.tabBarItem setSelectedImage:[[UIImage imageNamed:@"tabbar_home_highlighted"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     

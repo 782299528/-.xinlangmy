@@ -11,6 +11,9 @@
 #import "newFeatureViewController.h"
 #import "accountModel.h"
 #import "accountTool.h"
+#import "WelcomeViewController.h"
+#import "UserTool.h"
+#import "UserModel.h"
 @interface AppDelegate ()
 
 @end
@@ -35,8 +38,18 @@
         newFeatureViewController *new = [[newFeatureViewController alloc]init];
         self.window.rootViewController = new;
     }else{
-        MytabBarCon *main = [[MytabBarCon alloc]init];
-        self.window.rootViewController = main;
+        UserTool *tool = [UserTool userTool];
+        UserModel *userModel = [tool getUser];
+        if (userModel) {
+            WelcomeViewController *wel = [[WelcomeViewController alloc]init];
+            wel.userName = userModel.screen_name;
+            wel.imgUrl = userModel.profile_image_url;
+            self.window.rootViewController = wel;
+        }
+        
+        else{        MytabBarCon *main = [[MytabBarCon alloc]init];
+            self.window.rootViewController = main;
+        }
     }
     
     

@@ -58,8 +58,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     int a = scrollView.contentOffset.x;
     int b = self.view.bounds.size.width;
     int c = a/b;

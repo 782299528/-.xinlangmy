@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface UserModel : NSObject
+@interface UserModel : NSObject<NSCoding>
 
 @property (nonatomic,copy) NSString *screen_name;
+@property (nonatomic,copy) NSString *profile_image_url;
 
 @end

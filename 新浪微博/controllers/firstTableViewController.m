@@ -14,11 +14,11 @@
 #import "UserModel.h"
 #import "statusModel.h"
 #import "MJRefresh.h"
+#import "UnreadModel.h"
 
 @interface firstTableViewController ()
 
 @property (nonatomic,strong) NSMutableArray *modelArr;
-
 
 @end
 
@@ -68,8 +68,9 @@
         
         [self.tableView reloadData];
          [self.tableView headerEndRefreshing];
+        self.navigationController.tabBarItem.badgeValue = nil;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+          [self.tableView headerEndRefreshing];
     }];
     
 }
@@ -80,6 +81,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//     self.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d",1];
     [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     [self.tableView setLayoutMargins:UIEdgeInsetsZero];
 //    把tableview的无数据的cell去掉
@@ -125,6 +127,9 @@
     }];
         //获取其他信息
         [self getData];
+        
+       NSTimer *timer =  [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(getUnread) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSRunLoopCommonModes];
         
     }
 }
@@ -240,9 +245,47 @@
         
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+         [self.tableView footerEndRefreshing];
     }];
     
 }
+
+//获取未读条数
+//https://rm.api.weibo.com/2/remind/unread_count.json
+//access_token
+//uid
+-(void) getUnread{
+    accountTool *tool = [[accountTool alloc]init];
+    accountModel *account = [tool getAccount];
+    NSString *token = account.access_token;
+    NSString *uid = account.uid;
+    NSString *urlStr =@"https://rm.api.weibo.com/2/remind/unread_count.json";
+    NSDictionary *dict = @{
+                           @"access_token":token,
+                           @"uid":uid
+                           };
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:urlStr parameters:dict success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+        NSDictionary *dict = responseObject;
+        UnreadModel *model = [[UnreadModel alloc]init];
+        [model mj_setKeyValues:dict];
+//        NSLog(@"%d",model.status);
+        if (model.status == 0) {
+            self.navigationController.tabBarItem.badgeValue = nil;
+        }else{
+            [self.navigationController.tabBarItem setBadgeValue:[NSString stringWithFormat:@"%d",model.status]] ;
+
+        }
+     
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+    
+    
+    
+}
+
 
 @end

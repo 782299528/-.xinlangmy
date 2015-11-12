@@ -13,7 +13,14 @@
 #import "accountTool.h"
 #import "MytabBarCon.h"
 #import "AppDelegate.h"
+#import "UserModel.h"
+#import "MJExtension.h"
+#import "WelcomeViewController.h"
+#import "UserTool.h"
 @interface LoginVc ()<UIWebViewDelegate>
+
+@property (nonatomic,strong) UIView *hideView;
+@property (nonatomic,strong) UIWebView *webView;
 
 @end
 
@@ -41,6 +48,7 @@
     
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]]];
     webView.delegate = self;
+    self.webView = webView;
     
 }
 
@@ -99,12 +107,52 @@
         accountTool *tool = [[accountTool alloc]init];
         [tool saveAccount:model];
         
-//        跳转控制器  (通过window的rootviewCon跳转的方式)
-        MytabBarCon *controller = [[MytabBarCon alloc]init];
-        
-        UIWindow *window = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
 
-        window.rootViewController = controller;
+//        继续发送请求 获取用户的数据
+        NSString *token = model.access_token;
+        NSString *uid = model.uid;
+        NSString *userUrlStr = @"https://api.weibo.com/2/users/show.json";
+        NSDictionary *prams = @{
+                                                               @"access_token":token,
+                                                               @"uid":uid
+                                };
+        self.hideView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        self.hideView.backgroundColor = [UIColor whiteColor];
+        self.hideView.alpha = 1;
+        [self.view addSubview:self.hideView];
+        [SVProgressHUD showSuccessWithStatus:@"登录中"];
+        
+        
+        [manager GET:userUrlStr parameters:prams success:^(NSURLSessionDataTask * _Nonnull task, id  _Nonnull responseObject) {
+            [SVProgressHUD dismiss];
+            self.hideView.alpha = 0;
+            NSDictionary *dict = responseObject;
+            UserModel *userModel = [[UserModel alloc]init];
+            [userModel mj_setKeyValues:dict];
+            
+//            将用户信息存入本地
+            UserTool *tool = [UserTool userTool];
+            [tool saveUser:userModel];
+            
+//            跳转欢迎界面
+//            self.webView.delegate = nil;
+//            [self.webView stopLoading];
+            WelcomeViewController *welcome = [[WelcomeViewController alloc]init];
+            welcome.userName = userModel.screen_name;
+            welcome.imgUrl = userModel.profile_image_url;
+            UIWindow *window = ((AppDelegate *)[UIApplication sharedApplication].delegate).window;
+            
+            window.rootViewController = welcome;
+        } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [SVProgressHUD showErrorWithStatus:@"网络问题,请稍后再试"];
+            
+        }];
+        
+        
+//        跳转控制器  (通过window的rootviewCon跳转的方式)
+//        MytabBarCon *controller = [[MytabBarCon alloc]init];
+//        
+
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
 //        NSLog(@"%@",error);
